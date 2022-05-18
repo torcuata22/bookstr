@@ -10,4 +10,5 @@ class Book (models.Model):
     is_best_selling_book = models.BooleanField(default=False)
     
     def __str__(self):
-        return f"{self.title} ({self.rating})" 
+        return f"{self.title} ({self.rating})"
+ 
