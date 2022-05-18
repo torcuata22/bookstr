@@ -2,4 +2,8 @@ from django.contrib import admin
 from .models import Book
 # Register your models here.
 
-admin.site.register(Book)
+class BookAdmin(admin.ModelAdmin):
+   readonly_fields=("slug",) 
+
+
+admin.site.register(Book, BookAdmin)
