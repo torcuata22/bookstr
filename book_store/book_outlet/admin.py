@@ -3,7 +3,8 @@ from .models import Book
 # Register your models here.
 
 class BookAdmin(admin.ModelAdmin):
-   readonly_fields=("slug",) 
+   #readonly_fields=("slug",) to avoid error
+   prepopulated_fields={"slug": ("title",)} 
 
 
 admin.site.register(Book, BookAdmin)
