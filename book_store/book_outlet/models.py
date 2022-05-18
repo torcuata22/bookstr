@@ -9,6 +9,11 @@ class Book (models.Model):
     rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     author=models.CharField(null=True, max_length=100)
     is_best_selling_book = models.BooleanField(default=False)
+    slug = models.SlugField(default = "", null=False)
+    
+    def save(self):
+        
+        super().save()
     
     def get_absolute_url(self):
         return reverse("book-detail", args = [self.id])
